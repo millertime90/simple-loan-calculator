@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>CF Hundo: A Coding Project By Scott Miller via CoderFoundry</title>
+    <title>Simple Loan Calculator: A Coding Project By Scott Miller</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,7 +23,7 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="/img/SM_logomark_dark.PNG" class="d-inline-block align-text-top" alt="Scott Miller Logo Mark" width="30" height="30" /> CF Hundo
+            <img src="/img/SM_logomark_dark.PNG" class="d-inline-block align-text-top" alt="Scott Miller Logo Mark" width="30" height="30" /> Simple Loan Calculator
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,8 +52,63 @@
 </nav>
 <!-- MAIN SECTION -->
 <main class="flex-shrink-0">
-    <div class="container">
-
+    <div class="container col-xxl-8 py-5 px-4">
+        <div class="row g-5 py-5">
+            <h1 class="text-black p-0">Simple Loan Calculator</h1>
+            <div class="col-lg-4 col-sm-12 mt-2 bg-secondary rounded">
+                <form class="p-3">
+                    <label>Loan Amount</label>
+                    <input id="loanAmt" class="form-control" type="number" 
+                           min="0" aria-label="Loan Amount" placeholder="Loan Amount" 
+                    />
+                    <label>Term</label>
+                    <input id="term" class="form-control" type="number" 
+                           min="0" aria-label="Term (in months)" placeholder="Term (in months)" 
+                    /> 
+                    <label>Interest Rate</label>
+                    <input id="intRate" class="form-control" type="number" 
+                           min="0" aria-label="Interest Rate (%)" placeholder="Interest Rate (%)" 
+                    /> 
+                    <button class="btn btn-primary btn-outline-light float-end mb-3" type="button" onclick="DISPLAY_SCHEDULE_EXEC()">Calculate</button>
+                </form>
+            </div>
+            <div class="col-lg-8 col-sm-12 prices text-primary lead">
+                <div class="monthlyPayments text-center">
+                    <h3><em>Your Monthly Payments</em></h3>
+                    <h1>$000.00</h1>
+                </div>
+                <div class="priceLabels d-flex flex-column text-end">
+                    <span>Total Principal:</span>
+                    <span>Total Interest:</span>
+                    <span class="fw-bold">Total Cost:</span>
+                </div>
+                <div class="priceFigures d-flex flex-column">
+                    <span id="totalPrincipal">$0,000.00</span>
+                    <span id="totalInterest">$000.00</span>
+                    <span id="totalCost" class="fw-bold">$0,000.00</span>
+                </div>
+            </div>
+            <div class="col-12 p-0">
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                            <tr class="bg-primary text-light text-center">
+                                <th>Month</th>
+                                <th>Payment</th>
+                                <th>Principal</th>
+                                <th>Interest</th>
+                                <th>Total Principal Paid</th>
+                                <th>Total Interest Paid</th>
+                                <th>Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results">
+                            <!-- Table and figures generated with JS here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 <!-- FOOTER SECTION --> 
@@ -96,5 +151,6 @@
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
     </script>
     <!-- Site script -->
+    <script src="js/site.js"></script>
 </body>
 </html>
