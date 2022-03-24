@@ -1,7 +1,10 @@
 function displayAllFigures() {
 
+    let results = document.querySelector("#results"); 
     let monthlyPayments = document.querySelector(".monthlyPayments>h1"); 
     let totalInterest = document.querySelector("#totalInterest"); 
+
+    results.innerHTML = ""; 
 
     monthlyPayments.innerHTML = `$${getMonthlyPayment().toFixed(2)}`; 
     getTotalPrincipal(); 
